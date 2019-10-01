@@ -11,7 +11,7 @@ class FiguresController < ApplicationController
   end
   
   post '/figures' do
-    "Here we save the new figure and redirect to that figure's page"
+    @figure = Figure.create(params["figure"])
   end
   
   get '/figures/:id' do
