@@ -19,7 +19,8 @@ class LandmarksController < ApplicationController
   end
   
   get '/landmarks/:id/edit' do
-    "Here you can edit an individual landmark"
+    @landmark = Landmark.find(params["id"])
+    erb :'landmarks/edit'
   end
   
   patch '/landmarks' do
