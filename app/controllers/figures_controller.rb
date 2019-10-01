@@ -1,10 +1,13 @@
 class FiguresController < ApplicationController
   get '/figures' do
-    "Here should be all the figures"
+    @figures = Figure.all
+    erb :'figures/index'
   end
   
   get '/figures/new' do
-    "Here should be a form to create new figures"
+    @landmarks = Landmark.all
+    @titles = Title.all
+    erb :'figures/new'
   end
   
   post '/figures' do
