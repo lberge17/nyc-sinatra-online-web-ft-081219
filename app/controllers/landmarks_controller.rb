@@ -1,18 +1,20 @@
 class LandmarksController < ApplicationController
   get '/landmarks' do
-    "Here should be all the landmarks"
+    @landmarks = Landmark.all
+    erb :'landmarks/index'
   end
   
   get '/landmarks/new' do
-    "Here should be a form to create new landmarks"
-  end
-  
-  post '/landmarks' do
-    "Here we save the new landmark and redirect to that landmark's page"
+    erb :'landmarks/new'
   end
   
   get '/landmarks/:id' do
-    "Here is an individual landmark"
+    @landmark = Landmark.find(params["id"])
+  end
+  
+  post '/landmarks' do
+    @landmark = Landmark.create(params["landmark"])
+    redirect "/landmarks/#{@landmark.id}"
   end
   
   get '/landmarks/:id/edit' do
