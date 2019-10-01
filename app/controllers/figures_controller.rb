@@ -38,6 +38,6 @@ class FiguresController < ApplicationController
   end
   
   patch '/figures/:id' do
-    "Here we save the updated figure and redirect to that figure's page"
+    @figure = Figure.find(params["id"])
   end
 end
