@@ -35,7 +35,7 @@ class FiguresController < ApplicationController
     erb :'figures/edit'
   end
   
-  patch '/figures' do
+  patch '/figures/:id' do
     "Here we save the updated figure and redirect to that figure's page"
   end
 end
